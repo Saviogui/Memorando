@@ -1,0 +1,46 @@
+<h1>Memorando</h1>
+<p>Bem vindo ao seu site de salvamento de memorias!! <br>
+     sinta-se a vontade para registrar seus momentos.
+</p>
+
+ <!--aqui fica a busca -->
+<input 
+  type="text" 
+  [(ngModel)]="searchQuery" 
+  (input)="filterPhotos()" 
+  placeholder="Buscar por título..." 
+  class="search-bar"
+>
+
+<div class="gallery">
+  <!-- Mensagem quando não há fotos -->
+  <div *ngIf="filteredPhotos.length === 0" class="no-photos">
+    Nenhuma foto encontrada.
+  </div>
+
+ 
+  <div *ngFor="let photo of filteredPhotos" class="photo-card">
+    <div class="photo-actions"></div>
+    <img [src]="photo.image" [alt]="photo.description">
+    <div class="photo-info">
+     <h2>{{ photo.title || 'Sem título' }}</h2>
+
+ <!-- Exibe o título -->
+      <p class="photo-author">Autor: {{ photo.author }}</p>  <!-- Exibe o autor -->
+      <p>{{ photo.description }}</p>
+      <p class="photo-date">{{ photo.date | date:'longDate':'':'pt-BR' }}</p>
+
+      <div class="botoes">
+        <button [routerLink]="['/formulario', photo.id]" class="button-edit">
+          Editar
+        </button>
+        <button (click)="deletePhoto(photo.id)" class="button-delete">
+          Excluir
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Botão para adicionar nova foto -->
+<a routerLink="/formulario" class="nav-button">Adicionar Nova Foto</a>

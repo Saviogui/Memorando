@@ -1,0 +1,135 @@
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+
+
+
+
+body {
+ background-color: black;
+}
+
+.form-container {
+    box-shadow: 0 0 15px rgba(255, 0, 144, 0.8);
+    max-width: 500px;
+    margin: 20px auto;
+    padding: 60px 120px;
+    background: -webkit-linear-gradient(90deg, #ffa6a3, #eb26b4);
+    background: linear-gradient(90deg, #ffa6a3, #eb26b4);
+    border-radius: 8px;
+    animation: fadeIn 0.8s ease-in-out;
+  
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; transform: scale(0.9); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+
+
+h2 {
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    font-size: 1.5rem;
+    color: #ffffff;
+}
+
+.form-group {
+    color: rgb(255, 255, 255);
+    margin-bottom: 40px;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #ffffff;
+}
+
+input[type="file"],
+input[type="date"],
+textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.photo-preview {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    margin-top: 10px;
+    border-radius: 5px;
+}
+
+.small {
+    color: #777;
+    font-size: 0.9rem;
+}
+
+.form-buttons {
+    display: flex;
+    justify-content: space-between;
+}
+
+button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: 0.3s;
+     box-shadow: 0px 0px 10px rgba(255, 105, 180, 0.8);
+}
+
+button:hover {
+  box-shadow: 0px 0px 15px rgba(255, 105, 180, 1);
+  transform: scale(1.05);
+}
+
+
+
+
+button[type="submit"] {
+    font-family: Arial, Helvetica, sans-serif;
+    background: linear-gradient(to right, #ff69b4, #1976d2);
+    color: rgb(255, 255, 255);
+}
+
+.cancel-button {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #dc3545;
+    color: white;
+}
+
+button:hover {
+    opacity: 0.8;
+}
+
+.nav-button {
+    font-family: Arial, Helvetica, sans-serif;
+    display: block;
+    width: fit-content;
+    margin: 20px auto;
+    padding: 10px 20px;
+    background: linear-gradient(to right, #ff69b4, #1976d2);
+    color: white;
+    text-align: center;
+    font-size: 16px;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 18px;
+    box-shadow: 0 0 15px rgba(255, 0, 144, 0.8);
+    transition: all .5s ease;
+}
+
+.nav-button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 20px rgba(255, 105, 180, 1);
+}

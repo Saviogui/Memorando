@@ -1,0 +1,77 @@
+<div class="form-container">
+    <h2>{{ isEditMode ? 'Editar Foto' : 'Adicionar Nova Foto' }}</h2>
+    <form (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="photoUpload">Selecione uma foto:</label>
+        <input 
+          type="file" 
+          id="photoUpload" 
+          accept="image/*" 
+          (change)="onFileSelected($event)"
+        >
+        <img 
+          *ngIf="imagePreview" 
+          [src]="imagePreview" 
+          class="photo-preview" 
+          alt="Pré-visualização"
+        >
+      </div>
+      
+      <div class="form-group">
+        <label for="photoTitle">Título:</label>
+        <input 
+          type="text" 
+          id="photoTitle" 
+          [(ngModel)]="photo.title" 
+          name="title" 
+          required
+        >
+      </div>
+
+      <div class="form-group">
+        <label for="photoAuthor">Nome do Autor:</label>
+        <input 
+          type="text" 
+          id="photoAuthor" 
+          [(ngModel)]="photo.author" 
+          name="author" 
+          required
+        >
+      </div>
+
+      <div class="form-group">
+        <label for="photoDescription">Descrição:</label>
+        <textarea 
+          id="photoDescription" 
+          [(ngModel)]="photo.description" 
+          name="description" 
+          required
+        ></textarea>
+      </div>
+      
+      <div class="form-group">
+        <label for="photoDate">Data:</label>
+        <input 
+          type="date" 
+          id="photoDate" 
+          [(ngModel)]="photo.date" 
+          name="date" 
+          required
+        >
+      </div>
+      
+      <div class="form-buttons">
+        <button type="submit">{{ isEditMode ? 'Atualizar' : 'Salvar' }}</button>
+        <button 
+          *ngIf="isEditMode" 
+          type="button" 
+          class="cancel-button" 
+          (click)="router.navigate(['/galeria'])"
+        >
+          Cancelar
+        </button>
+      </div>
+    </form>
+  </div>
+  
+  <a routerLink="/galeria" class="nav-button">Ver Galeria de Fotos</a>
